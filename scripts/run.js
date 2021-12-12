@@ -12,6 +12,14 @@ const main = async () => {
 	// Mint another token
 	txn = await nftContract.makeAnEpicNFT();
 	await txn.wait();
+
+	// Mint another token
+	txn = await nftContract.makeAnEpicNFT();
+	await txn.wait();
+
+	// Mint another token
+	txn = await nftContract.makeAnEpicNFT();
+	await txn.wait();
 };
 
 const runMain = async () => {
