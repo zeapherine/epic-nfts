@@ -17,9 +17,10 @@ contract MyEpicNFT is ERC721URIStorage {
   string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
   string[] firstWords = ["Fantastic", "Wonderful", "Incredible", "Great", "Super", "Awesome", "Fabulous", "Magnificent", "altruism", "Incredible", "Hopeless", "benevolence", "benignancy", "benignity","generosity", "goodwill", "humaneness", "humanism"];
-    string[] secondWords = ["Pizza", "Burger", "Fries", "HotDog", "Sandwich", "Cake", "Pie", "Cupcake", "Donut", "Cookie", "Candy", "IceCream", "Chocolate", "Sweetbreads", "Headcheese","Rabbit", "Ladyfingers", "Woodcock"];
-    string[] thirdWords = ["Naruto", "Sasuke", "Sakura", "Kakashi", "Goku", "Gaara", "Minato", "Hinata", "Madara", "Obito", "Itachi", "Shikamaru", "Erza", "Akihiro", "Akio", "Takasi", "Yuu", "Jun"];
+  string[] secondWords = ["Pizza", "Burger", "Fries", "HotDog", "Sandwich", "Cake", "Pie", "Cupcake", "Donut", "Cookie", "Candy", "IceCream", "Chocolate", "Sweetbreads", "Headcheese","Rabbit", "Ladyfingers", "Woodcock"];
+  string[] thirdWords = ["Naruto", "Sasuke", "Sakura", "Kakashi", "Goku", "Gaara", "Minato", "Hinata", "Madara", "Obito", "Itachi", "Shikamaru", "Erza", "Akihiro", "Akio", "Takasi", "Yuu", "Jun"];
 
+  event NewEpicNFTMinted(address sender, uint256 tokenId);
 
   constructor() ERC721 ("SquareNFT", "SQUARE") {
     console.log("This is my NFT contract. Woah!");
@@ -90,6 +91,8 @@ contract MyEpicNFT is ERC721URIStorage {
   
     _tokenIds.increment();
     console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+    emit NewEpicNFTMinted(msg.sender, newItemId);
+
   }
 }
 
